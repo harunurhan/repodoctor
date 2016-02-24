@@ -1,4 +1,4 @@
-# CONTRIBUTING to $$ProjectName
+# CONTRIBUTING to repologist
 
 ## Code Style
 
