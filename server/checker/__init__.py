@@ -1,1 +1,1 @@
-from .github import RepoScanner
+from .checker import Checker
