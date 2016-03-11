@@ -11,6 +11,7 @@ checkup_api = Api(Blueprint('checkup_api', __name__)) # pylint: disable=invalid-
 class CheckupAPI(Resource):
     @staticmethod
     def get():
+        #TODO: add documentation for the service including json response and post data format.
         repo_name_param = request.args.get('repo_name')
         checkup = Checkup.query.filter_by(repo_name=repo_name_param)
         return checkup
