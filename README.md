@@ -102,6 +102,8 @@ npm install
 Setup python environment and install dependencies:
 
 ```
+cd server 
+
 virtualenv venv
 
 source venv/bin/activate     # or any equivalent
