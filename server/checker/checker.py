@@ -1,9 +1,9 @@
-from github import RepoScanner
-from criteria import *
+from .github import RepoScanner
+from .criteria import *
 
 class Checker:
     # criteria which are checked
-    criteria = [ReadmeCriterion]
+    criteria = [ReadmeCriterion()]
 
     def __init__(self, owner, repo):
         self.github = RepoScanner(owner, repo)
