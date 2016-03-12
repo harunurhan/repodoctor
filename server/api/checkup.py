@@ -2,7 +2,7 @@
 from flask import Blueprint
 from flask_restful import Api, Resource
 from flask import request
-from models import Checkup
+from checker import Checker
 
 checkup_api = Api(Blueprint('checkup_api', __name__)) # pylint: disable=invalid-name
 
@@ -12,6 +12,7 @@ class CheckupAPI(Resource):
     @staticmethod
     def get():
         #TODO: add documentation for the service including json response and post data format.
-        repo_name_param = request.args.get('repo_name')
-        checkup = Checkup.query.filter_by(repo_name=repo_name_param)
-        return checkup
+        owner = request.args.get('owner')
+        repo = request.args.get('repo')
+        checker = Checker(owner, repo)
+        return checker.check()

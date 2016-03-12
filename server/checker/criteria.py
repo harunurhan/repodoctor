@@ -8,7 +8,7 @@ class CriterionBase(object):
     @abstractmethod
     def description(self):
         """
-        :returns: string
+        :return: string
             the user readable description of the criterion
         """
         pass
