@@ -9,6 +9,8 @@ class Checkup(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     created = db.Column(db.DateTime, default=datetime.utcnow)
-    repo_name = db.Column(db.String, unique=True) # github-user/repo-name
+    # TODO: add one unique constraint on the column group of owner and repo
+    owner = db.Column(db.String)
+    repo = db.Column(db.String)
     criteria = db.relationship('Criterion', backref='criterion',
                                 lazy='dynamic')
