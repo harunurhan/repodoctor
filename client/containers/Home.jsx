@@ -1,8 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import { connect, Provider } from 'react-redux';
 // FIXME: use different way of es6 import to make below code single line
-import formAction from '../actions/form';
-import checkupAction from '../actions/checkup';
+import * as formActions from '../actions/form';
+// TODO: uncomment
+// import * as checkupActions from '../actions/checkup';
 
 // Components FIXME: use different way of es6 import to make below code single line
 import Form from '../components/Form';
@@ -13,6 +14,9 @@ const propTypes = {
   store: PropTypes.object.isRequired,
 };
 
+// TODO: for 2nd param: add checkup actions too
+const SmartForm = connect(state => state.form, formActions)(Form);
+
 // TODO: remove (added for test purpose)
 const log = data => console.log(data);
 
@@ -21,23 +25,23 @@ class Home extends Component {
     const { store } = this.props;
     return (
       <Provider store={store}>
-        <Form onSubmit={log}>
+        <SmartForm onSubmit={log}>
           <TextInput
-            name="repoName"
-            validate={['required', 'repoName']}
-            placeholder="github-username/repo-name"
-            label="Repo name"
+            name="owner"
+            validate={['required']}
+            placeholder="github-username"
+            label="Github Username"
           />
           <TextInput
-            name="keywords"
-            validate={[]}
-            placeholder="keyword1, keyword2, keyword3"
-            label="Keywords"
+            name="repo"
+            validate={['required']}
+            placeholder="github-repository"
+            label="Github Repository"
           />
           <SubmitButton
             label="Checkup"
           />
-        </Form>
+        </SmartForm>
       </Provider>
     );
   }
@@ -45,8 +49,5 @@ class Home extends Component {
 
 Home.propTypes = propTypes;
 
-// TODO for 1st param: define better mapStateToProps function.
-export default connect(state => state, {
-  formAction,
-  checkupAction,
-})(Home);
+
+export default Home;
