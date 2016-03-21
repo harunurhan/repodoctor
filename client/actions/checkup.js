@@ -15,7 +15,7 @@ function checkupSucces(checkup) {
   };
 }
 
-export function checkupRequest(data) {
+export function onSubmit(data) {
   return dispatch => {
     dispatch({
       type: actionTypes.REQUEST_CHECKUP_RESULT,
