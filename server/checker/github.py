@@ -22,6 +22,8 @@ class RepoScanner:
             root_dir_contents = [each['name'] for each in res.json()]
         else:
             raise Exception(res.status_code)
+        if '.github' not in root_dir_contents:
+            return root_dir_contents
         uri += '/.github' # To fetch files in the .github folder.
         res = requests.get(uri)
         # Return both root directory contents and .github contents
