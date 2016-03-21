@@ -3,7 +3,7 @@ from .criteria import *
 
 class Checker:
     # criteria which are checked
-    criteria = [ReadmeCriterion()]
+    criteria = [HaveReadmeCriterion(), HaveContributingCriterion()]
 
     def __init__(self, owner, repo):
         self.github = RepoScanner(owner, repo)

@@ -58,7 +58,8 @@ class CriterionBase(object):
         pass
 
 
-class ReadmeCriterion(CriterionBase):
+# FIXME: make suggestions better
+class HaveReadmeCriterion(CriterionBase):
         def description(self):
             return 'Have a README.md'
 
@@ -74,6 +75,22 @@ class ReadmeCriterion(CriterionBase):
         def check(self, github):
             return 'README.md' in github.get_contents()
 
+
+class HaveContributingCriterion(CriterionBase):
+        def description(self):
+            return 'Have a CONTRIBUTING.md'
+
+        def severity(self):
+            return 2
+
+        def suggestion(self):
+            return 'A CONTRIBUTING.md is a must, if you expect other people to contribute'
+
+        def guide_link(self):
+            return 'https://github.com/atom/atom/blob/master/CONTRIBUTING.md'
+
+        def check(self, github):
+            return 'CONTRIBUTING.md' in github.get_contents()
 
 
 
