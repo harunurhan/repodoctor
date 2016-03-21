@@ -6,6 +6,8 @@ export default function checkup(state = {}, action) {
     case actionTypes.REQUEST_CHECKUP_RESULT:
       return merge({}, state, action.data);
     case actionTypes.REQUEST_CHECKUP_RESULT_SUCCESS:
+      // TODO: remove this (for test purpose)
+      console.log(`CHECKUP --> ${action.checkup}`);
       return merge({}, state, action.checkup);
     case actionTypes.REQUEST_CHECKUP_RESULT_ERROR:
       return merge({}, state, action.error);
