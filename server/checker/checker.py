@@ -3,19 +3,21 @@ from .criteria import *
 
 class Checker:
     # criteria which are checked
+    # TODO: search for an injection method which will read classes in criteria.py and inject here to be checked!
     criteria = [HaveReadmeCriterion(), HaveContributingCriterion()]
 
     def __init__(self, owner, repo):
         self.github = RepoScanner(owner, repo)
 
     def check(self):
-        errors = []
+        warnings = []
         for criterion in Checker.criteria:
             if not criterion.check(self.github):
-                errors.append({'description': criterion.description(),
+                warnings.append({'description': criterion.description(),
                                'severity': criterion.severity(),
                                'suggestion': criterion.suggestion(),
                                'guide_link': criterion.guide_link()})
-        return errors
+        # TODO: add other stuff addition to warnings
+        return {'warnings': warnings}
 
 
