@@ -109,6 +109,8 @@ virtualenv venv
 source venv/bin/activate     # or any equivalent
 
 pip install -r requirements.txt
+
+cd ..
 ```
 
 Copy `.env.example` config file to `.env`:
