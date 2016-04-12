@@ -1,4 +1,4 @@
-# repologist
+# repodoctor
 
 **Disclaimer:** Not yet functional
 
@@ -74,7 +74,7 @@ See [CONTRIBUTING](./CONTRIBUTING.md)
 
 ## Production Deployment
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/harunurhan/repologist)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/harunurhan/repodoctor)
 
 ## Local installation (Development Environment)
 
@@ -88,9 +88,9 @@ See [CONTRIBUTING](./CONTRIBUTING.md)
 Clone repository:
 
 ```
-git clone https://github.com/harunurhan/repologist.git
+git clone https://github.com/harunurhan/repodoctor.git
 
-cd repologist
+cd repodoctor
 ```
 
 Install npm dependencies:
